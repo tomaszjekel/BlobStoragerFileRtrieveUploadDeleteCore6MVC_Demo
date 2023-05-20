@@ -1,0 +1,61 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v6.0": {},
+    ".NETFramework,Version=v6.0/win7-x86": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v6.0": []
+  },
+  "packageFolders": {
+    "C:\\Users\\A669802\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\A669802\\Downloads\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.csproj",
+      "projectName": "BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo",
+      "projectPath": "C:\\Users\\A669802\\Downloads\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.csproj",
+      "packagesPath": "C:\\Users\\A669802\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\A669802\\Downloads\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\A669802\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net60"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net60": {
+          "targetAlias": "net6.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net60": {
+        "targetAlias": "net6.0"
+      }
+    },
+    "runtimes": {
+      "win7-x86": {
+        "#import": []
+      }
+    }
+  }
+}
