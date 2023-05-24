@@ -48,11 +48,10 @@ namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.BlobStorageServices
                 throw;
             }
         }
-        public async Task UploadBlobFileAsync(FileStream files)
+        public async Task UploadBlobFileAsync(byte[] file, string name)
         {
             try
             {
-                byte[] dataFiles;
                 // Retrieve storage account from connection string.
                 CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(_storageConnectionString);
                 // Create the blob client.
@@ -64,21 +63,15 @@ namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.BlobStorageServices
                 {
                     PublicAccess = BlobContainerPublicAccessType.Blob
                 };
-                string systemFileName = Path.GetFileName( files.GetType().Name);
+                string systemFileName = Path.GetFileName(name);
                 await cloudBlobContainer.SetPermissionsAsync(permissions);
-                await using (var target = new MemoryStream())
-                {
-                    files.Position = 0;
-                        files.CopyTo(target);
-                    dataFiles = target.ToArray();
-                }
                 // This also does not make a service call; it only creates a local object.
                 CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(systemFileName);
-                await cloudBlockBlob.UploadFromByteArrayAsync(dataFiles, 0, dataFiles.Length);
+                //await cloudBlockBlob.UploadFromByteArrayAsync(dataFiles, 0, dataFiles.Length);
+                await cloudBlockBlob.UploadFromByteArrayAsync(file,0,file.Length);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

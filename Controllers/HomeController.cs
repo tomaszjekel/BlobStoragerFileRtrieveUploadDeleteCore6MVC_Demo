@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Net.Http.Headers;
+using static System.Collections.Specialized.BitVector32;
 
 namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.Controllers
 {
@@ -60,24 +61,23 @@ namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.Controllers
                     // Here, we just use the temporary folder and a random file name
 
                     // Get the temporary folder, and combine a random file name with it
-                    var fileName = Path.GetRandomFileName();
                     var saveToPath = contentDisposition.FileName.Value;// Path.Combine(Path.GetTempPath(), fileName);
 
-                    using (var targetStream = System.IO.File.Create(saveToPath))
+                    using (var requestBodyStream = new MemoryStream())
                     {
-                        FileStream f = targetStream;
-                        await section.Body.CopyToAsync(targetStream);
-                        await _blobStorage.UploadBlobFileAsync(f);
+                        await section.Body.CopyToAsync(requestBodyStream);
+                        requestBodyStream.Seek(0, SeekOrigin.Begin);
+                        var fileByte = requestBodyStream.ToArray();
+                        await _blobStorage.UploadBlobFileAsync(fileByte, saveToPath);
                     }
-
-                    return Ok();
                 }
 
                 section = await reader.ReadNextSectionAsync();
             }
+            return Ok();
 
             // If the code runs to this location, it means that no files have been saved
-            return BadRequest("No files data in the request.");
+            //return BadRequest("No files data in the request.");
         }
 
         public async Task<IActionResult> Delete(string blobName)

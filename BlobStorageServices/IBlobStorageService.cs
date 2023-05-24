@@ -6,7 +6,7 @@ namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.BlobStorageServices
     public interface IBlobStorageService
     {
         Task<List<BlobStorage>> GetAllBlobFiles();
-        Task UploadBlobFileAsync(FileStream files);
+        Task UploadBlobFileAsync(byte[] file, string name);
         Task DeleteDocumentAsync(string blobName);
     }
 }

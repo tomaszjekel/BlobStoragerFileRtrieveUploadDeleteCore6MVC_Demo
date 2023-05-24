@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.props" />
-</Project>
