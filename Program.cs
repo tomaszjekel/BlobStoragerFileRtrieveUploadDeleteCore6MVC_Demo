@@ -10,7 +10,9 @@ builder.Services.AddScoped<IBlobStorageService, BlobStorageService>();
 
 builder.Services.Configure<KestrelServerOptions>(options =>
 {
-    options.Limits.MaxRequestBodySize = int.MaxValue; // if don't set default value is: 30 MB
+    options.Limits.MaxRequestBodySize = int.MaxValue;
+    options.Limits.KeepAliveTimeout = TimeSpan.FromHours(2);
+    // if don't set default value is: 30 MB
 });
 
 builder.Services.Configure<FormOptions>(x =>

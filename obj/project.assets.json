@@ -9008,9 +9008,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A669802\\Downloads\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.csproj",
-      "projectName": "BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo",
-      "projectPath": "C:\\Users\\A669802\\Downloads\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.csproj",
+      "projectUniqueName": "C:\\Users\\A669802\\Downloads\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\azure_storage.csproj",
+      "projectName": "azure_storage",
+      "projectPath": "C:\\Users\\A669802\\Downloads\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\azure_storage.csproj",
       "packagesPath": "C:\\Users\\A669802\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\A669802\\Downloads\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo\\obj\\",
       "projectStyle": "PackageReference",

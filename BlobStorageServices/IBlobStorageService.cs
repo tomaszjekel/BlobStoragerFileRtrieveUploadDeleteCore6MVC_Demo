@@ -8,5 +8,6 @@ namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.BlobStorageServices
         Task<List<BlobStorage>> GetAllBlobFiles();
         Task UploadBlobFileAsync(byte[] file, string name);
         Task DeleteDocumentAsync(string blobName);
+        Task<FileResult> DownloadAsync(string fileName);
     }
 }

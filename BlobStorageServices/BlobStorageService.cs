@@ -1,6 +1,8 @@
 ﻿using BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.Models;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage;
+using System.IO;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.BlobStorageServices
 {
@@ -84,6 +86,30 @@ namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.BlobStorageServices
                 CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(_storageContainerName);
                 var blob = cloudBlobContainer.GetBlobReference(blobName);
                 await blob.DeleteIfExistsAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<FileResult > DownloadAsync(string fileName)
+        {
+            try
+            {
+                CloudBlockBlob blockBlob;
+                await using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(_storageConnectionString);
+                    CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+                    CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(_storageContainerName);
+                    blockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
+                    await blockBlob.DownloadToStreamAsync(memoryStream);
+                }
+                return  new FileResult{ FileStream = blockBlob.OpenReadAsync().Result, ContentType= blockBlob.Properties.ContentType };
+               
+                
             }
             catch (Exception)
             {

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Net.Http.Headers;
+using System.IO.Compression;
 using static System.Collections.Specialized.BitVector32;
 
 namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.Controllers
@@ -84,6 +85,13 @@ namespace BlobStoragerFileRtrieveUploadDeleteCore6MVC_Demo.Controllers
         {
             await _blobStorage.DeleteDocumentAsync(blobName);
             return RedirectToAction("Index", "Home");
-        }   
+        }
+
+        public async Task<IActionResult> Download(string blobName)
+        {
+           var stream = await _blobStorage.DownloadAsync(blobName);
+            stream.FileStream .Seek(0, SeekOrigin.Begin);
+            return File(stream.FileStream, stream.ContentType,  blobName);
+        }
     }
 }

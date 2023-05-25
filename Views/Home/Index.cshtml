@@ -54,7 +54,7 @@
                 <td>@data.FileName</td>
                 <td>@data.FileSize</td>
                 <td>@data.Modified</td>
-                <td> <a href="/Home/Delete?blobName=@data.FileName" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
+                <td> <a href="/Home/Download?blobName=@data.FileName">Download</a><a href="/Home/Delete?blobName=@data.FileName" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
             </tr>
         }
     </tbody>
